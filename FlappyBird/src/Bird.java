@@ -5,7 +5,7 @@ public class Bird {
 
    public Bird ()
     {
-     this.height = 0 ;
+     this.height = 0 ; ////// як передать висоту?
      this.fallSpeed = 1;
     }
 

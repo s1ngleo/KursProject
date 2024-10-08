@@ -5,7 +5,11 @@ import javafx.stage.Stage;
 import java.util.Timer;
 import java.util.TimerTask;
 
+
+
 public class FlappyBird extends Application {
+
+    
     public static void main(String[] args)  {
 
 
@@ -22,32 +26,24 @@ TimerTask task = new TimerTask()
       
 gameTime.schedule(task,2000,500);
 
-// bird.jump(2);   кнопка
+// bird.jump(2); кнопка /////// як обратитись к jump в fxml файлі (у птички)
 launch(args);
 gameTime.cancel();
 
-        {
+     /*    {
             System.out.println(bird.height);
         }
-   
+   */
 
     
     
     
     
-
-
-
-
-   
-
-
-
     }
 
     @Override
     public void start(Stage primaryStage)  {
-        StackPane root = new StackPane();
+        StackPane root = new StackPane(); //////як познайомить джаву з fxml файлом?//////
         primaryStage.setTitle("Flappy Bird");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
