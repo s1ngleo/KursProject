@@ -2,6 +2,13 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"type": "java",
+			"name": "Controller",
+			"request": "launch",
+			"mainClass": "Controller",
+			"projectName": "FlappyBird_47c2be50"
+		},
+		{
 			"vmArgs": "--module-path \"f:/@Install/Java/javafx-sdk-21.0.4/lib\" --add-modules javafx.controls,javafx.fxml",
 			"type": "java",
 			"name": "Launch Current File",

@@ -5,16 +5,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" text="FlappyBird" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" text="FlappyBird" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
-            <ImageView fitHeight="691.0" fitWidth="889.0" layoutX="-7.0" layoutY="-41.0" onKeyPressed="#jump" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="691.0" fitWidth="889.0" layoutX="-7.0" layoutY="-41.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@fon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="91.0" layoutX="163.0" layoutY="329.0" onKeyPressed="#jump" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="199.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="552.1171188354492" AnchorPane.topAnchor="329.0">
+            <ImageView fx:id="birdPNG" fitHeight="46.0" fitWidth="91.0" layoutX="163.0" layoutY="329.0" onKeyPressed="#jump" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Bird.png" />
                </image>

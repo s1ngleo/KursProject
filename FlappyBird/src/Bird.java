@@ -1,4 +1,4 @@
-public class Bird {
+/*public class Bird {
 
     double height;
     double fallSpeed;
@@ -9,14 +9,12 @@ public class Bird {
      this.fallSpeed = 1;
     }
 
-    public void jump (double heightChange)
-    {
-       Bird.this.height = height+=heightChange;
-    }
-    public void falling ()
+
+   /*  public void falling ()
     {
        Bird.this.height = height-=fallSpeed;
     }
+       }
+*/
 
-}
 
