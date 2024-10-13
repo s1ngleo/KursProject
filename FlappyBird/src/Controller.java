@@ -7,23 +7,24 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.Node;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+
 
 public class Controller {
    @FXML
    ImageView birdPNG;
 
   
-  public void jump()
- {
+   public void jump() {
 
-   birdPNG.setLayoutY(birdPNG.getLayoutY()-50);
+        birdPNG.setLayoutY(birdPNG.getLayoutY() - 100);
     
- }
+}
  public void falling()
  {
   
-   birdPNG.setLayoutY(birdPNG.getLayoutY()+1);
+   birdPNG.setLayoutY(birdPNG.getLayoutY()+0.8);
 
 
     

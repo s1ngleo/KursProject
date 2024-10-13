@@ -8,12 +8,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 
 public class FlappyBird extends Application {
@@ -41,7 +43,7 @@ public class FlappyBird extends Application {
     //    controller.falling();
 
         
- /*Timer gameTime = new Timer();
+ Timer gameTime = new Timer();
  
 TimerTask task = new TimerTask() 
         {
@@ -50,8 +52,20 @@ TimerTask task = new TimerTask()
             controller.falling();
         }
        };
-gameTime.schedule(task,0,3);  */
-controller.jump();
+gameTime.schedule(task,0,3);  
+
+FlappyBirdScene.setOnKeyPressed(new EventHandler<KeyEvent>() 
+{
+   public void handle(KeyEvent event) 
+   {
+        if (event.getCode() == KeyCode.SPACE) 
+        {
+            controller.jump();
+        }
+    }
+});
+
+//controller.jump(event);
  
 
         
