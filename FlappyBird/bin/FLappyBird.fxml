@@ -4,26 +4,56 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="562.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane fx:id="border" minHeight="0.0" minWidth="0.0" prefHeight="900.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
-      <ImageView fitHeight="734.0" fitWidth="1013.0" layoutX="-148.0" layoutY="-91.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="900.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@fon.png" />
+            <Image url="@../images/fon.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="birdPNG" fitHeight="46.0" fitWidth="91.0" layoutX="163.0" layoutY="329.0" onKeyPressed="#jump" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="movingFon" fitHeight="900.0" fitWidth="1280.0" layoutY="649.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Bird.png" />
+            <Image url="@../images/movingFon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="220.0" fitWidth="481.0" layoutX="442.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="movingFon2" fitHeight="900.0" fitWidth="1280.0" layoutX="1280.0" layoutY="649.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Tube.png" />
+            <Image url="@../images/movingFon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="272.0" fitWidth="396.0" layoutX="442.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+      <ImageView fx:id="tube" fitHeight="3361.0" fitWidth="140.0" layoutX="1290.0" layoutY="495.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Tube.png" />
+            <Image url="@../images/Tube.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="tube4" fitHeight="3361.0" fitWidth="140.0" layoutX="1499.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Tube.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ground" fitHeight="900.0" fitWidth="1280.0" layoutY="823.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/ground.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ground2" fitHeight="900.0" fitWidth="1280.0" layoutX="1247.0" layoutY="823.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/ground.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bird" fitHeight="75.0" fitWidth="118.0" layoutX="218.0" layoutY="209.0" onKeyPressed="#jump" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Bird.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="tube2" fitHeight="3361.0" fitWidth="140.0" layoutX="1290.0" layoutY="-523.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../images/Tube.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="tube3" fitHeight="3361.0" fitWidth="140.0" layoutX="1509.0" layoutY="-365.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../images/Tube.png" />
          </image>
       </ImageView>
    </children>
