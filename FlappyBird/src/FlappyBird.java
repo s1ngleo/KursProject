@@ -48,6 +48,7 @@ public class FlappyBird extends Application {
                 controller.moveGround();
                 controller.moveGround2();
                 controller.gamestatus();
+                controller.scores(); 
             }
         };
         gameLoop.start();
