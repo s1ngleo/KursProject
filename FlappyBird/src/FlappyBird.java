@@ -3,9 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.util.Timer;
-import java.util.TimerTask;
-  
+import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -33,48 +31,42 @@ public class FlappyBird extends Application {
         primaryStage.setTitle("Flappy Bird");
         primaryStage.setScene(FlappyBirdScene);
         primaryStage.show();
+
+
+
+
+
+
+        AnimationTimer gameLoop = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                controller.birdFalling();
+                controller.moveTube();
+                controller.moveTube2();
+                controller.moveFon();
+                controller.moveFon2();
+                controller.moveGround();
+                controller.moveGround2();
+                controller.gamestatus();
+            }
+        };
+        gameLoop.start();
+
+
+
+
+
+
+        FlappyBirdScene.setOnKeyPressed(new EventHandler<KeyEvent>() 
+        {
+             public void handle(KeyEvent event) {
    
-        long birdFallSpeed =  3;
-        long tubeMoveSpeed =  2;
-
-Timer gameTime = new Timer();
-TimerTask birdFalling = new TimerTask() 
-
-        {
-        public void run()
-        {
-            controller.birdFalling();
-        }
-       };
-
-       TimerTask tubeMoving = new TimerTask() 
-
-       {
-       public void run()
-       {
-           controller.moveTube();
-         
-           controller.moveFon();
-           controller.moveFon2();
-           controller.moveGround();
-           controller.moveGround2();
-           controller.gamestatus(); 
-       }
-      };
-
-gameTime.schedule(birdFalling,0,birdFallSpeed);  
-gameTime.schedule(tubeMoving,0,tubeMoveSpeed);
-
-FlappyBirdScene.setOnKeyPressed(new EventHandler<KeyEvent>() 
-{
-   public void handle(KeyEvent event) 
-   {
-        if (event.getCode() == KeyCode.SPACE) 
-        {
+                 if (event.getCode() == KeyCode.SPACE) 
+                {
             controller.jump();
-        }
-    }
-});
+                }
+                }
+        });
 
 
     }
