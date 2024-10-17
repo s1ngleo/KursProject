@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,17 +14,17 @@
             <Image url="@../images/fon.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="movingFon" fitHeight="900.0" fitWidth="1280.0" layoutY="649.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="movingFon" fitHeight="900.0" fitWidth="1300.0" layoutX="-16.0" layoutY="646.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/movingFon.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="movingFon2" fitHeight="900.0" fitWidth="1280.0" layoutX="1280.0" layoutY="649.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="movingFon2" fitHeight="900.0" fitWidth="1300.0" layoutX="1280.0" layoutY="646.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/movingFon.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bird" fitHeight="75.0" fitWidth="118.0" layoutX="211.0" layoutY="98.0" onKeyPressed="#jump" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bird" fitHeight="75.0" fitWidth="118.0" layoutX="160.0" layoutY="295.0" onKeyPressed="#jump" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Bird.png" />
          </image>
@@ -48,20 +49,24 @@
             <Image url="@../images/Tube.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="ground2" fitHeight="900.0" fitWidth="1280.0" layoutX="1247.0" layoutY="823.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ground2" fitHeight="900.0" fitWidth="1300.0" layoutX="1247.0" layoutY="823.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/ground.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="ground" fitHeight="900.0" fitWidth="1280.0" layoutY="823.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ground" fitHeight="900.0" fitWidth="1300.0" layoutY="823.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/ground.png" />
          </image>
       </ImageView>
-      <Text fx:id="text" fill="#00ffb4" layoutX="594.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="147.8021240234375">
+      <Text fx:id="text" fill="#e9ff00" layoutX="594.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="147.8021240234375">
          <font>
             <Font name="System Bold" size="70.0" />
          </font>
       </Text>
+      <Button fx:id="button" defaultButton="true" layoutX="549.0" layoutY="434.0" mnemonicParsing="false" onAction="#startGame" text="Game Over: Space to restart" textAlignment="CENTER" textFill="#000aff" visible="false">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font></Button>
    </children>
 </AnchorPane>

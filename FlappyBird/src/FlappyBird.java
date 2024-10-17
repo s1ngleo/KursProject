@@ -11,7 +11,25 @@ import javafx.scene.input.KeyEvent;
 
 public class FlappyBird extends Application {
     private Controller controller;
-        
+    public AnimationTimer gameLoop;
+
+
+        public void stopGame()
+        { if(gameLoop!=null)
+            {
+            gameLoop.stop();
+        }
+        }
+
+        public void startGame()
+        {if(gameLoop!=null)
+            {
+            gameLoop.start();
+        }
+        }
+
+
+
     public static void main(String[] args)  
     {
         launch(args);
@@ -26,6 +44,7 @@ public class FlappyBird extends Application {
         
         
         controller = loader.getController();
+        controller.setGameLoop(this);
         Scene FlappyBirdScene = new Scene(root, 1280, 900);
 
         primaryStage.setTitle("Flappy Bird");
@@ -37,7 +56,7 @@ public class FlappyBird extends Application {
 
 
 
-        AnimationTimer gameLoop = new AnimationTimer() {
+       gameLoop = new AnimationTimer() {
             @Override
             public void handle(long now) {
                 controller.birdFalling();
@@ -47,11 +66,16 @@ public class FlappyBird extends Application {
                 controller.moveFon2();
                 controller.moveGround();
                 controller.moveGround2();
-                controller.gamestatus();
+                controller.stopGame();
                 controller.scores(); 
+              //  controller.birdCord();
+                controller.jumpTimer();
+
             }
         };
-        gameLoop.start();
+        controller.setBird();
+        controller.setTubes();
+        startGame();
 
 
 
