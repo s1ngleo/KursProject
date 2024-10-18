@@ -47,9 +47,10 @@ public class Controller {
    double gameSpeed = 8;
    double birdFallSpeed = 8;
    double tubeSpace = 1080;
+   double jumpHeight = 28;
    boolean jumpAnimWorks = false;
 
-
+   
    public void setGameLoop(FlappyBird gameloop)
    {
     this.gameLoop=gameloop;
@@ -87,7 +88,7 @@ public void jumpTimer()
   {
     jumpItterator+=1;
 
-    bird.setLayoutY(bird.getLayoutY()-28);
+    bird.setLayoutY(bird.getLayoutY()-jumpHeight);
 
     if(jumpItterator>7)
 
@@ -202,8 +203,8 @@ public void scores()
 {
   String score = Integer.toString(scores);
   text.setText(score);
-  if(bird.getLayoutX()>tube.getLayoutX()-4&&bird.getLayoutX()<tube.getLayoutX()+4
-  ||bird.getLayoutX()>tube3.getLayoutX()-4&&bird.getLayoutX()<tube3.getLayoutX()+4)
+  if(bird.getLayoutX()>tube.getLayoutX()-(gameSpeed/2)&&bird.getLayoutX()<tube.getLayoutX()+(gameSpeed/2)
+  ||bird.getLayoutX()>tube3.getLayoutX()-(gameSpeed/2)&&bird.getLayoutX()<tube3.getLayoutX()+(gameSpeed/2))
   {
 scores++;
   }
