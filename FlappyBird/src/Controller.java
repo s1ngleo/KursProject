@@ -5,26 +5,45 @@ import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 public class Controller {
   private FlappyBird gameLoop;
+
    @FXML
-   private Button button;
+   Button restartButton;
+
+   @FXML
+   Button startSoloButton;
+
+   @FXML
+   Button startDuoButton;
 
    @FXML
    Text text;
 
    @FXML
+   Text twoWon;
+
+   @FXML
+   Text oneWon;
+
+   @FXML
    ImageView bird;
 
    @FXML
-   ImageView tube;
+   ImageView bird2;
 
    @FXML
-   ImageView tube2;
+   ImageView birdSolo;
 
    @FXML
-   ImageView tube3;
+   ImageView mainTube;
 
    @FXML
-   ImageView tube4;
+   ImageView mainCoTube;
+
+   @FXML
+   ImageView mainTube2;
+
+   @FXML
+   ImageView mainCoTube2;
 
    @FXML
    ImageView movingFon;
@@ -44,11 +63,16 @@ public class Controller {
    int minRandNum = 306;
    int maxRandNum = 716;
    int jumpItterator = 1;
+   int jumpItterator2 = 1;
+   int jumpItteratorSolo = 1;
    double gameSpeed = 8;
    double birdFallSpeed = 8;
    double tubeSpace = 1080;
-   double jumpHeight = 28;
+   double jumpHeight = 24;
    boolean jumpAnimWorks = false;
+   boolean jumpAnimWorks2 = false;
+   boolean jumpAnimWorksSolo = false;
+   boolean isSolo;
 
    
    public void setGameLoop(FlappyBird gameloop)
@@ -59,26 +83,35 @@ public class Controller {
 public void setBird()
 {
   bird.setLayoutX(211);
-  bird.setLayoutY(300);
+  bird.setLayoutY(400);
+  
+  bird2.setLayoutX(211);
+  bird2.setLayoutY(200);
+  birdSolo.setLayoutX(211);
+  birdSolo.setLayoutY(200);
 }
 
 public void setTubes()
 {
-  tube.setLayoutX(1294);
-  tube3.setLayoutX(2020);
-}
-
-public void birdCord() //just for understanding bird actual position in console
-{
-  System.out.println(bird.getLayoutY()+"     " + bird.getLayoutX());
+  mainTube.setLayoutX(1294);
+  mainTube2.setLayoutX(2020); 
 }
 
 public void jump() {
  
     if (bird.getLayoutY() > 100) {
       jumpAnimWorks = true;
-
     }
+    else if (birdSolo.getLayoutY() > 100) {
+      jumpAnimWorks = true;
+    }
+}
+
+public void jump2() {
+ 
+  if (bird2.getLayoutY() > 100) {
+    jumpAnimWorks2 = true;
+  }
 }
 
 public void jumpTimer()
@@ -89,7 +122,7 @@ public void jumpTimer()
     jumpItterator+=1;
 
     bird.setLayoutY(bird.getLayoutY()-jumpHeight);
-
+    birdSolo.setLayoutY(birdSolo.getLayoutY()-jumpHeight);
     if(jumpItterator>7)
 
     {
@@ -101,9 +134,32 @@ public void jumpTimer()
 }
 
 
+public void jumpTimer2()
+{ 
+  
+  if (jumpAnimWorks2==true)
+  {
+    jumpItterator2+=1;
+
+    bird2.setLayoutY(bird2.getLayoutY()-jumpHeight);
+
+    if(jumpItterator2>7)
+
+    {
+      jumpAnimWorks2 = false;
+      jumpItterator2=1;
+    }
+
+}
+}
+
+
+
  public void birdFalling()
  {
    bird.setLayoutY(bird.getLayoutY()+birdFallSpeed);
+   bird2.setLayoutY(bird2.getLayoutY()+birdFallSpeed);
+   birdSolo.setLayoutY(birdSolo.getLayoutY()+birdFallSpeed);
  }
 
 
@@ -111,25 +167,25 @@ public void jumpTimer()
 
  public void moveTube()
   {
-  tube.setLayoutX(tube.getLayoutX() - gameSpeed);  
-  tube2.setLayoutX(tube.getLayoutX());
-  tube2.setLayoutY(tube.getLayoutY()-tubeSpace);
-  if (tube.getLayoutX()<-162)
+  mainTube.setLayoutX(mainTube.getLayoutX() - gameSpeed);  
+  mainCoTube.setLayoutX(mainTube.getLayoutX());
+  mainCoTube.setLayoutY(mainTube.getLayoutY()-tubeSpace);
+  if (mainTube.getLayoutX()<-162)
     {
-    tube.setLayoutX(1272);
-    tube.setLayoutY(randomNum.nextInt(maxRandNum - minRandNum + 1) + minRandNum);
+    mainTube.setLayoutX(1272);
+    mainTube.setLayoutY(randomNum.nextInt(maxRandNum - minRandNum + 1) + minRandNum);
     }
   }
 
   public void moveTube2()
   {
-   tube3.setLayoutX(tube3.getLayoutX() - gameSpeed);  
-   tube4.setLayoutX(tube3.getLayoutX());
-   tube4.setLayoutY(tube3.getLayoutY()-tubeSpace);
-   if (tube3.getLayoutX()<-162)
+   mainTube2.setLayoutX(mainTube2.getLayoutX() - gameSpeed);  
+   mainCoTube2.setLayoutX(mainTube2.getLayoutX());
+   mainCoTube2.setLayoutY(mainTube2.getLayoutY()-tubeSpace);
+   if (mainTube2.getLayoutX()<-162)
     {
-     tube3.setLayoutX(1272);
-     tube3.setLayoutY(randomNum.nextInt(maxRandNum - minRandNum + 1) + minRandNum);
+     mainTube2.setLayoutX(1272);
+     mainTube2.setLayoutY(randomNum.nextInt(maxRandNum - minRandNum + 1) + minRandNum);
      
     }
   }
@@ -145,8 +201,6 @@ public void jumpTimer()
     movingFon.setLayoutX(1280);
    }
  }
-
-
 
  public void moveFon2()
  {
@@ -180,31 +234,140 @@ public void jumpTimer()
  }
 
 
-public void stopGame()
+public void stopGame() // TODO  
+{if(!isSolo){
+  if (bird.getBoundsInParent().intersects(ground.getBoundsInParent())||
+     bird.getBoundsInParent().intersects(ground2.getBoundsInParent())||
+    bird.getBoundsInParent().intersects(mainTube.getBoundsInParent())||
+  bird.getBoundsInParent().intersects(mainCoTube.getBoundsInParent())||
+   bird.getBoundsInParent().intersects(mainTube2.getBoundsInParent())||
+   bird.getBoundsInParent().intersects(mainCoTube2.getBoundsInParent())) 
+  
+   {
+startDuoButton.setVisible(true);
+startDuoButton.setDisable(false);
+startSoloButton.setVisible(true);
+startSoloButton.setDisable(false);
+
+   //restartButton.setVisible(true);
+   //restartButton.setDisable(false);
+   gameLoop.stopGame(); 
+   twoWon.setVisible(true);
+  }
+}
+}
+
+public void stopGame2()
 {
-  if (bird.getBoundsInParent().intersects(ground.getBoundsInParent())||bird.getBoundsInParent().intersects(ground2.getBoundsInParent())||bird.getBoundsInParent().intersects(tube.getBoundsInParent())
-  ||bird.getBoundsInParent().intersects(tube2.getBoundsInParent())||bird.getBoundsInParent().intersects(tube3.getBoundsInParent())||bird.getBoundsInParent().intersects(tube4.getBoundsInParent())) {
-   button.setVisible(true);
+  if (!isSolo)
+  {
+  if (bird2.getBoundsInParent().intersects(ground.getBoundsInParent())||
+     bird2.getBoundsInParent().intersects(ground2.getBoundsInParent())||
+    bird2.getBoundsInParent().intersects(mainTube.getBoundsInParent())||
+  bird2.getBoundsInParent().intersects(mainCoTube.getBoundsInParent())||
+   bird2.getBoundsInParent().intersects(mainTube2.getBoundsInParent())||
+   bird2.getBoundsInParent().intersects(mainCoTube2.getBoundsInParent())&&isSolo==false) 
+   {
+
+
+startDuoButton.setVisible(true);
+startDuoButton.setDisable(false);
+startSoloButton.setVisible(true);
+startSoloButton.setDisable(false);
+   //restartButton.setVisible(true);
+   //restartButton.setDisable(false);
+   gameLoop.stopGame(); 
+   oneWon.setVisible(true);
+  }
+}
+}
+
+
+public void stopGameSolo()
+{ if(isSolo)
+  {
+  if (birdSolo.getBoundsInParent().intersects(ground.getBoundsInParent())||
+     birdSolo.getBoundsInParent().intersects(ground2.getBoundsInParent())||
+    birdSolo.getBoundsInParent().intersects(mainTube.getBoundsInParent())||
+  birdSolo.getBoundsInParent().intersects(mainCoTube.getBoundsInParent())||
+   birdSolo.getBoundsInParent().intersects(mainTube2.getBoundsInParent())||
+   birdSolo.getBoundsInParent().intersects(mainCoTube2.getBoundsInParent())) 
+   {
+
+startDuoButton.setVisible(true);
+startDuoButton.setDisable(false);
+startSoloButton.setVisible(true);
+startSoloButton.setDisable(false);
+   //restartButton.setVisible(true);
+  // restartButton.setDisable(false);
    gameLoop.stopGame(); 
    
   }
-
 }
+}
+
+
 public void startGame()
 {
+  oneWon.setVisible(false);
+  twoWon.setVisible(false);
+ isSolo=true;
+  gameLoop.startGame();
+  bird.setVisible(false);
+ bird2.setVisible(false);
+
+birdSolo.setVisible(true);
+
+  startDuoButton.setVisible(false);
+  startDuoButton.setDisable(true);
+  startSoloButton.setVisible(false);
+  startSoloButton.setDisable(true);
   setBird();
+
   setTubes();
-  gameLoop.startGame(); 
+ 
   scores=0;
-button.setVisible(false);
+restartButton.setVisible(false);
+restartButton.setDisable(true);
+
+
+}
+
+public void startDuoGame()
+{
+  oneWon.setVisible(false);
+  twoWon.setVisible(false);
+  isSolo=false;
+  gameLoop.startGame();
+  bird.setVisible(true);
+bird2.setVisible(true);
+
+
+birdSolo.setVisible(false);
+
+
+
+  startDuoButton.setVisible(false);
+  startDuoButton.setDisable(true);
+  startSoloButton.setVisible(false);
+  startSoloButton.setDisable(true);
+  setBird();
+
+  setTubes();
+  
+  scores=0;
+restartButton.setVisible(false);
+restartButton.setDisable(true);
+
+
 }
 
 public void scores()  
 {
   String score = Integer.toString(scores);
   text.setText(score);
-  if(bird.getLayoutX()>tube.getLayoutX()-(gameSpeed/2)&&bird.getLayoutX()<tube.getLayoutX()+(gameSpeed/2)
-  ||bird.getLayoutX()>tube3.getLayoutX()-(gameSpeed/2)&&bird.getLayoutX()<tube3.getLayoutX()+(gameSpeed/2))
+  if(bird.getLayoutX()>mainTube.getLayoutX()-(gameSpeed/2)&&bird.getLayoutX()<mainTube.getLayoutX()+(gameSpeed/2)
+  ||bird.getLayoutX()>mainTube2.getLayoutX()-(gameSpeed/2)&&bird.getLayoutX()<mainTube2.getLayoutX()+(gameSpeed/2))
   {
 scores++;
   }

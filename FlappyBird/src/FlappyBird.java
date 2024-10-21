@@ -9,6 +9,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 
+
+
 public class FlappyBird extends Application {
     private Controller controller;
     public AnimationTimer gameLoop;
@@ -32,6 +34,7 @@ public class FlappyBird extends Application {
 
     public static void main(String[] args)  
     {
+        
         launch(args);
     }
 
@@ -67,15 +70,20 @@ public class FlappyBird extends Application {
                 controller.moveGround();
                 controller.moveGround2();
                 controller.stopGame();
+                controller.stopGame2();
+                controller.stopGameSolo();;
                 controller.scores(); 
-              //  controller.birdCord();
                 controller.jumpTimer();
+                controller.jumpTimer2();
+                
+                
 
             }
         };
         controller.setBird();
         controller.setTubes();
-        startGame();
+
+    
 
 
 
@@ -90,8 +98,13 @@ public class FlappyBird extends Application {
                 {
             controller.jump();
                 }
+                else if (event.getCode() == KeyCode.ENTER)
+                {
+                    controller.jump2();
+                }
                 }
         });
+
 
 
     }
