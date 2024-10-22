@@ -88,12 +88,12 @@
             <Font name="Comic Sans MS Bold" size="15.0" />
          </font>
       </Button>
-      <Text fx:id="oneWon" fill="#4eff00" layoutX="375.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player one won" textAlignment="CENTER" visible="false" wrappingWidth="569.1354370117188">
+      <Text fx:id="oneWon" fill="#ff4d00" layoutX="375.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player one won" textAlignment="CENTER" visible="false" wrappingWidth="569.1354370117188">
          <font>
             <Font name="System Bold" size="70.0" />
          </font>
       </Text>
-      <Text fx:id="twoWon" fill="#4eff00" layoutX="375.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player two won" textAlignment="CENTER" visible="false" wrappingWidth="635.8021240234375">
+      <Text fx:id="twoWon" fill="#004eff" layoutX="375.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player two won" textAlignment="CENTER" visible="false" wrappingWidth="635.8021240234375">
          <font>
             <Font name="System Bold" size="70.0" />
          </font>

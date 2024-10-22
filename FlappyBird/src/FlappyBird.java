@@ -94,11 +94,11 @@ public class FlappyBird extends Application {
         {
              public void handle(KeyEvent event) {
    
-                 if (event.getCode() == KeyCode.SPACE) 
+                 if (event.getCode() == KeyCode.W) 
                 {
             controller.jump();
                 }
-                else if (event.getCode() == KeyCode.ENTER)
+                else if (event.getCode() == KeyCode.UP)
                 {
                     controller.jump2();
                 }

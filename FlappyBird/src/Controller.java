@@ -67,7 +67,7 @@ public class Controller {
    int jumpItteratorSolo = 1;
    double gameSpeed = 8;
    double birdFallSpeed = 8;
-   double tubeSpace = 1080;
+   double tubeSpace = 1180;
    double jumpHeight = 24;
    boolean jumpAnimWorks = false;
    boolean jumpAnimWorks2 = false;
@@ -78,6 +78,20 @@ public class Controller {
    public void setGameLoop(FlappyBird gameloop)
    {
     this.gameLoop=gameloop;
+   }
+
+   public void setGame()
+   {
+    setBird();
+    setTubes();
+   }
+
+   public void buttonsVisible(boolean isVisible)
+   {
+     startDuoButton.setVisible(isVisible);
+     startDuoButton.setDisable(!isVisible);
+     startSoloButton.setVisible(isVisible);
+     startSoloButton.setDisable(!isVisible);
    }
 
 public void setBird()
@@ -234,7 +248,7 @@ public void jumpTimer2()
  }
 
 
-public void stopGame() // TODO  
+public void stopGame() 
 {if(!isSolo){
   if (bird.getBoundsInParent().intersects(ground.getBoundsInParent())||
      bird.getBoundsInParent().intersects(ground2.getBoundsInParent())||
@@ -244,15 +258,9 @@ public void stopGame() // TODO
    bird.getBoundsInParent().intersects(mainCoTube2.getBoundsInParent())) 
   
    {
-startDuoButton.setVisible(true);
-startDuoButton.setDisable(false);
-startSoloButton.setVisible(true);
-startSoloButton.setDisable(false);
-
-   //restartButton.setVisible(true);
-   //restartButton.setDisable(false);
-   gameLoop.stopGame(); 
-   twoWon.setVisible(true);
+    buttonsVisible(true);
+    gameLoop.stopGame(); 
+    twoWon.setVisible(true);
   }
 }
 }
@@ -270,12 +278,7 @@ public void stopGame2()
    {
 
 
-startDuoButton.setVisible(true);
-startDuoButton.setDisable(false);
-startSoloButton.setVisible(true);
-startSoloButton.setDisable(false);
-   //restartButton.setVisible(true);
-   //restartButton.setDisable(false);
+   buttonsVisible(true);
    gameLoop.stopGame(); 
    oneWon.setVisible(true);
   }
@@ -294,34 +297,33 @@ public void stopGameSolo()
    birdSolo.getBoundsInParent().intersects(mainCoTube2.getBoundsInParent())) 
    {
 
-startDuoButton.setVisible(true);
-startDuoButton.setDisable(false);
-startSoloButton.setVisible(true);
-startSoloButton.setDisable(false);
-   //restartButton.setVisible(true);
-  // restartButton.setDisable(false);
+    buttonsVisible(true);
+
    gameLoop.stopGame(); 
    
   }
 }
 }
-
+public void soloVisible()
+{
+  bird.setVisible(false);
+  bird2.setVisible(false);
+  birdSolo.setVisible(true);
+}
 
 public void startGame()
 {
+  isSolo=true;
+  tubeSpace = 1080;
   oneWon.setVisible(false);
   twoWon.setVisible(false);
- isSolo=true;
+  soloVisible();
   gameLoop.startGame();
-  bird.setVisible(false);
- bird2.setVisible(false);
 
-birdSolo.setVisible(true);
 
-  startDuoButton.setVisible(false);
-  startDuoButton.setDisable(true);
-  startSoloButton.setVisible(false);
-  startSoloButton.setDisable(true);
+
+
+buttonsVisible(false);
   setBird();
 
   setTubes();
@@ -333,31 +335,25 @@ restartButton.setDisable(true);
 
 }
 
+
+
 public void startDuoGame()
 {
+  tubeSpace = 1180;
   oneWon.setVisible(false);
   twoWon.setVisible(false);
   isSolo=false;
   gameLoop.startGame();
-  bird.setVisible(true);
+
+bird.setVisible(true);
 bird2.setVisible(true);
-
-
 birdSolo.setVisible(false);
+buttonsVisible(false);
+setGame();
 
-
-
-  startDuoButton.setVisible(false);
-  startDuoButton.setDisable(true);
-  startSoloButton.setVisible(false);
-  startSoloButton.setDisable(true);
-  setBird();
-
-  setTubes();
   
   scores=0;
-restartButton.setVisible(false);
-restartButton.setDisable(true);
+
 
 
 }
