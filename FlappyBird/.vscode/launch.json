@@ -3,6 +3,13 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "FlappyExplorer",
+			"request": "launch",
+			"mainClass": "FlappyExplorer",
+			"projectName": "FlappyBird_47c2be50"
+		},
+		{
+			"type": "java",
 			"name": "Launch FlappyBird",
 			"request": "launch",
 			"mainClass": "FlappyBird",

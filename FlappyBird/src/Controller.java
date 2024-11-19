@@ -6,14 +6,15 @@ import javafx.scene.control.Button;
 public class Controller {
   private FlappyBird gameLoop;
 
-   @FXML
-   Button restartButton;
 
    @FXML
    Button startSoloButton;
 
    @FXML
    Button startDuoButton;
+
+   @FXML
+   Button flappyExplorerutton;
 
    @FXML
    Text text;
@@ -92,6 +93,12 @@ public class Controller {
      startDuoButton.setDisable(!isVisible);
      startSoloButton.setVisible(isVisible);
      startSoloButton.setDisable(!isVisible);
+     startSoloButton.setVisible(isVisible);
+     startSoloButton.setDisable(!isVisible);
+     flappyExplorerutton.setVisible(isVisible);
+     flappyExplorerutton.setDisable(!isVisible);
+
+    
    }
 
 public void setBird()
@@ -329,8 +336,7 @@ buttonsVisible(false);
   setTubes();
  
   scores=0;
-restartButton.setVisible(false);
-restartButton.setDisable(true);
+
 
 
 }
@@ -370,6 +376,16 @@ scores++;
 
 
 }
+
+
+public void startExp()
+{
+FlappyExplorer.main(null);
+}
+
+
+
+
 
 
 }
